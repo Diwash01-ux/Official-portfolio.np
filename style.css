@@ -1080,7 +1080,47 @@ body::after {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+/* Dark Mode Button */
+.dark-mode-btn {
+    padding: 10px 16px;
+    border: 1px solid #888;
+    border-radius: 25px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
 
+.dark-mode-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Light Mode */
+body:not(.dark-mode) {
+    background: #f5f5f5;
+    color: #222;
+}
+
+/* Light Mode Navigation */
+body:not(.dark-mode) nav {
+    background: #ffffff;
+    color: #222;
+}
+
+/* Light Mode Cards and Sections */
+body:not(.dark-mode) .card,
+body:not(.dark-mode) .project-card,
+body:not(.dark-mode) .about-card {
+    background: #ffffff;
+    color: #222;
+    border-color: #ddd;
+}
+
+/* Light Mode Links */
+body:not(.dark-mode) a {
+    color: #333;
+}
     .projects-grid {
         grid-template-columns: 1fr;
     }
