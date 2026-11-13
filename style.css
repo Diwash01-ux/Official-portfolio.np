@@ -1,3 +1,4 @@
+
 /* =====================================
    RESET
 ===================================== */
@@ -18,6 +19,7 @@ body {
     color: #f5f5f7;
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -52,6 +54,7 @@ body::before {
     filter: blur(120px);
     border-radius: 50%;
     z-index: -2;
+    pointer-events: none;
 }
 
 body::after {
@@ -65,6 +68,7 @@ body::after {
     filter: blur(120px);
     border-radius: 50%;
     z-index: -2;
+    pointer-events: none;
 }
 
 
@@ -97,7 +101,6 @@ body::after {
     display: flex;
     align-items: center;
     gap: 10px;
-
     font-size: 20px;
     font-weight: 800;
 }
@@ -141,12 +144,9 @@ body::after {
 
 .nav-button {
     padding: 10px 18px;
-
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 50px;
-
     font-size: 13px;
-
     transition: 0.3s;
 }
 
@@ -157,12 +157,40 @@ body::after {
 
 .menu-button {
     display: none;
-
     border: 0;
     background: none;
     color: white;
-
     font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* =====================================
+   DARK MODE BUTTON
+===================================== */
+
+.dark-mode-btn {
+    padding: 10px 14px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+
+    background: transparent;
+    color: #ffffff;
+
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition: all 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+    background: white;
+    color: #07070c;
+    transform: translateY(-2px);
 }
 
 
@@ -198,7 +226,6 @@ body::after {
 .section-heading h2 {
     max-width: 750px;
     margin-top: 10px;
-
     font-size: clamp(32px, 5vw, 60px);
     line-height: 1.05;
     letter-spacing: -2px;
@@ -239,33 +266,25 @@ body::after {
 
 .hero h1 {
     max-width: 850px;
-
     margin: 22px 0;
-
     font-size: clamp(48px, 7vw, 86px);
     line-height: 0.98;
-
     letter-spacing: -5px;
 }
 
 .hero-description {
     max-width: 620px;
-
     color: #9999a5;
     font-size: 16px;
 }
 
 .status-dot {
     display: inline-block;
-
     width: 7px;
     height: 7px;
-
     margin-right: 8px;
-
     background: #4ade80;
     border-radius: 50%;
-
     box-shadow: 0 0 15px #4ade80;
 }
 
@@ -279,10 +298,8 @@ body::after {
 .secondary-button {
     padding: 14px 22px;
     border-radius: 10px;
-
     font-size: 13px;
     font-weight: 700;
-
     transition: 0.3s;
 }
 
@@ -336,9 +353,7 @@ body::after {
 
 .hero-visual {
     position: relative;
-
     height: 520px;
-
     display: grid;
     place-items: center;
 }
@@ -367,21 +382,17 @@ body::after {
 .image-placeholder {
     width: 150px;
     height: 150px;
-
     display: grid;
     place-items: center;
-
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 30% 20%,
-            #8b5cf6,
-            #151520 65%
-        );
+    background: radial-gradient(
+        circle at 30% 20%,
+        #8b5cf6,
+        #151520 65%
+    );
 
     border: 5px solid rgba(255,255,255,0.08);
-
     font-size: 55px;
     font-weight: 800;
 }
@@ -412,9 +423,7 @@ body::after {
     justify-content: center;
     align-items: center;
     gap: 7px;
-
     margin-top: 22px;
-
     font-size: 11px;
     color: #9999a5;
 }
@@ -422,14 +431,12 @@ body::after {
 .profile-tag span {
     width: 6px;
     height: 6px;
-
     background: #4ade80;
     border-radius: 50%;
 }
 
 .orbit {
     position: absolute;
-
     border: 1px solid rgba(139,92,246,0.2);
     border-radius: 50%;
 }
@@ -437,16 +444,13 @@ body::after {
 .orbit-one {
     width: 420px;
     height: 420px;
-
     animation: rotate 20s linear infinite;
 }
 
 .orbit-two {
     width: 520px;
     height: 520px;
-
     border-color: rgba(34,211,238,0.1);
-
     animation: rotate 30s linear infinite reverse;
 }
 
@@ -499,20 +503,15 @@ body::after {
 .card-icon {
     width: 35px;
     height: 35px;
-
     display: grid;
     place-items: center;
-
     border-radius: 9px;
-
     background: rgba(139,92,246,0.15);
-
     color: #a78bfa;
 }
 
 .floating-card small {
     display: block;
-
     font-family: "DM Mono", monospace;
     font-size: 8px;
     color: #666674;
@@ -565,12 +564,9 @@ body::after {
 
 .mini-card {
     padding: 20px;
-
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 15px;
-
     background: rgba(255,255,255,0.025);
-
     transition: 0.3s;
 }
 
@@ -601,44 +597,32 @@ body::after {
 
 .skills-grid {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 15px;
 }
 
 .skill-card {
     position: relative;
-
     padding: 30px;
-
     min-height: 320px;
 
     background: rgba(255,255,255,0.025);
-
     border: 1px solid rgba(255,255,255,0.08);
-
     border-radius: 20px;
-
     transition: 0.35s;
 }
 
 .skill-card:hover {
     transform: translateY(-8px);
-
     border-color: rgba(139,92,246,0.5);
-
     background: rgba(139,92,246,0.05);
 }
 
 .skill-number {
     position: absolute;
-
     right: 20px;
     top: 20px;
-
     font-family: "DM Mono", monospace;
-
     color: #454550;
     font-size: 10px;
 }
@@ -646,18 +630,12 @@ body::after {
 .skill-icon {
     width: 48px;
     height: 48px;
-
     display: grid;
     place-items: center;
-
     margin-bottom: 35px;
-
     background: rgba(139,92,246,0.12);
-
     border-radius: 12px;
-
     color: #a78bfa;
-
     font-family: "DM Mono", monospace;
 }
 
@@ -673,22 +651,16 @@ body::after {
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
-
     gap: 6px;
-
     margin-top: 25px;
 }
 
 .skill-tags span,
 .project-tags span {
     padding: 5px 8px;
-
     border: 1px solid rgba(255,255,255,0.08);
-
     border-radius: 50px;
-
     font-size: 9px;
-
     color: #888895;
 }
 
@@ -699,38 +671,29 @@ body::after {
 
 .projects-grid {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 15px;
 }
 
 .project-card {
     position: relative;
-
     min-height: 390px;
-
     padding: 30px;
-
     border-radius: 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.05),
-            rgba(255,255,255,0.015)
-        );
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.015)
+    );
 
     border: 1px solid rgba(255,255,255,0.08);
-
     overflow: hidden;
-
     transition: 0.35s;
 }
 
 .project-card:hover {
     transform: translateY(-7px);
-
     border-color: rgba(139,92,246,0.45);
 }
 
@@ -754,21 +717,18 @@ body::after {
 
 .project-number {
     font-family: "DM Mono", monospace;
-
     font-size: 12px;
     color: #765cff;
 }
 
 .project-type {
     font-family: "DM Mono", monospace;
-
     font-size: 9px;
     color: #666674;
 }
 
 .project-content {
     position: absolute;
-
     left: 30px;
     right: 30px;
     bottom: 30px;
@@ -781,9 +741,7 @@ body::after {
 
 .project-content p {
     color: #888895;
-
     font-size: 13px;
-
     max-width: 550px;
 }
 
@@ -791,24 +749,17 @@ body::after {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
-
     margin-top: 22px;
 }
 
 .project-link {
     display: inline-flex;
-
     align-items: center;
     gap: 10px;
-
     margin-top: 25px;
-
     font-size: 12px;
-
     color: white;
-
     border-bottom: 1px solid #777;
-
     padding-bottom: 4px;
 }
 
@@ -824,34 +775,25 @@ body::after {
 
 .timeline-item {
     position: relative;
-
     padding-left: 50px;
     padding-bottom: 55px;
-
     border-left: 1px solid rgba(255,255,255,0.1);
 }
 
 .timeline-dot {
     position: absolute;
-
     left: -5px;
     top: 0;
-
     width: 9px;
     height: 9px;
-
     background: #8b5cf6;
-
     border-radius: 50%;
-
     box-shadow: 0 0 20px rgba(139,92,246,0.8);
 }
 
 .timeline-content > span {
     font-family: "DM Mono", monospace;
-
     color: #765cff;
-
     font-size: 10px;
 }
 
@@ -872,9 +814,7 @@ body::after {
 
 .contact-box {
     padding: 80px 50px;
-
     border-radius: 30px;
-
     text-align: center;
 
     background:
@@ -895,9 +835,7 @@ body::after {
 
 .contact-box h2 {
     font-size: clamp(38px, 6vw, 70px);
-
     line-height: 1;
-
     margin: 20px 0;
 }
 
@@ -907,18 +845,12 @@ body::after {
 
 .email-link {
     display: inline-flex;
-
     align-items: center;
     gap: 12px;
-
     margin-top: 30px;
-
     font-family: "DM Mono", monospace;
-
     color: white;
-
     border-bottom: 1px solid #777;
-
     padding-bottom: 6px;
 }
 
@@ -930,7 +862,6 @@ body::after {
 .footer {
     width: min(1180px, 90%);
     margin: auto;
-
     padding: 35px 0;
 
     border-top: 1px solid rgba(255,255,255,0.08);
@@ -939,7 +870,6 @@ body::after {
     justify-content: space-between;
 
     color: #666674;
-
     font-size: 11px;
 }
 
@@ -958,18 +888,14 @@ body::after {
 
 .birds {
     position: fixed;
-
     top: 25%;
     left: -100px;
-
     z-index: -1;
-
     animation: fly 25s linear infinite;
 }
 
 .birds span {
     margin: 20px;
-
     color: #777;
     font-size: 22px;
 }
@@ -986,17 +912,12 @@ body::after {
 
 .butterflies {
     position: fixed;
-
     right: 5%;
     top: 30%;
-
     z-index: -1;
-
     display: flex;
     flex-direction: column;
-
     gap: 100px;
-
     animation: butterfly 8s ease-in-out infinite;
 }
 
@@ -1016,14 +937,38 @@ body::after {
 
 
 /* =====================================
-   RESPONSIVE
+   RESPONSIVE DESIGN
 ===================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 3%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
 
 @media (max-width: 900px) {
 
     .nav-links,
     .nav-button {
         display: none;
+    }
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .dark-mode-btn {
+        margin-left: auto;
     }
 
     .menu-button {
@@ -1039,21 +984,30 @@ body::after {
         height: 450px;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .about-grid {
         grid-template-columns: 1fr;
     }
 
 }
 
-
 @media (max-width: 600px) {
 
     .section {
         padding: 80px 0;
+    }
+
+    .navbar {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .dark-mode-btn {
+        padding: 8px 10px;
+        font-size: 10px;
     }
 
     .hero h1 {
@@ -1080,47 +1034,7 @@ body::after {
     .skills-grid {
         grid-template-columns: 1fr;
     }
-/* Dark Mode Button */
-.dark-mode-btn {
-    padding: 10px 16px;
-    border: 1px solid #888;
-    border-radius: 25px;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
-}
 
-.dark-mode-btn:hover {
-    transform: scale(1.05);
-}
-
-/* Light Mode */
-body:not(.dark-mode) {
-    background: #f5f5f5;
-    color: #222;
-}
-
-/* Light Mode Navigation */
-body:not(.dark-mode) nav {
-    background: #ffffff;
-    color: #222;
-}
-
-/* Light Mode Cards and Sections */
-body:not(.dark-mode) .card,
-body:not(.dark-mode) .project-card,
-body:not(.dark-mode) .about-card {
-    background: #ffffff;
-    color: #222;
-    border-color: #ddd;
-}
-
-/* Light Mode Links */
-body:not(.dark-mode) a {
-    color: #333;
-}
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -1155,4 +1069,178 @@ body:not(.dark-mode) a {
         text-align: left;
     }
 
+}
+
+
+/* =====================================
+   LIGHT MODE THEME
+   Activated when dark-mode class is removed
+===================================== */
+
+body:not(.dark-mode) {
+    background: #f5f5f7;
+    color: #222222;
+}
+
+/* Navbar */
+
+body:not(.dark-mode) .navbar {
+    background: rgba(255,255,255,0.88);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+body:not(.dark-mode) .nav-links a {
+    color: #555555;
+}
+
+body:not(.dark-mode) .nav-links a:hover {
+    color: #8b5cf6;
+}
+
+body:not(.dark-mode) .nav-button {
+    border-color: rgba(0,0,0,0.2);
+}
+
+/* General text */
+
+body:not(.dark-mode) .eyebrow {
+    color: #777783;
+}
+
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) .large-text {
+    color: #222222;
+}
+
+body:not(.dark-mode) .hero-description,
+body:not(.dark-mode) .about-main,
+body:not(.dark-mode) .about-main p,
+body:not(.dark-mode) .project-content p,
+body:not(.dark-mode) .timeline-content p,
+body:not(.dark-mode) .contact-box p {
+    color: #555555;
+}
+
+body:not(.dark-mode) .muted {
+    color: #888888;
+}
+
+/* Cards */
+
+body:not(.dark-mode) .profile-card,
+body:not(.dark-mode) .floating-card,
+body:not(.dark-mode) .mini-card,
+body:not(.dark-mode) .skill-card,
+body:not(.dark-mode) .project-card,
+body:not(.dark-mode) .contact-box {
+    background: #ffffff;
+    color: #222222;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.04);
+}
+
+body:not(.dark-mode) .featured-project {
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(139,92,246,0.12),
+            transparent 35%
+        ),
+        #ffffff;
+}
+
+/* Profile */
+
+body:not(.dark-mode) .profile-info p,
+body:not(.dark-mode) .profile-label,
+body:not(.dark-mode) .profile-tag {
+    color: #555555;
+}
+
+/* Buttons */
+
+body:not(.dark-mode) .dark-mode-btn {
+    color: #222222;
+    border-color: rgba(0,0,0,0.2);
+}
+
+body:not(.dark-mode) .dark-mode-btn:hover {
+    background: #222222;
+    color: #ffffff;
+}
+
+body:not(.dark-mode) .primary-button {
+    background: #222222;
+    color: #ffffff;
+}
+
+body:not(.dark-mode) .secondary-button {
+    color: #444444;
+    border-color: rgba(0,0,0,0.2);
+}
+
+body:not(.dark-mode) .nav-button:hover {
+    background: #222222;
+    color: #ffffff;
+}
+
+body:not(.dark-mode) .project-link,
+body:not(.dark-mode) .email-link {
+    color: #333333;
+    border-color: #999999;
+}
+
+/* Tags */
+
+body:not(.dark-mode) .skill-tags span,
+body:not(.dark-mode) .project-tags span {
+    color: #555555;
+    border-color: rgba(0,0,0,0.15);
+}
+
+/* Timeline */
+
+body:not(.dark-mode) .timeline-item {
+    border-left-color: rgba(0,0,0,0.15);
+}
+
+/* Footer */
+
+body:not(.dark-mode) .footer {
+    color: #555555;
+    border-top-color: rgba(0,0,0,0.12);
+}
+
+/* Mobile menu */
+
+body:not(.dark-mode) .menu-button {
+    color: #222222;
+}
+
+/* Background glow */
+
+body:not(.dark-mode)::before {
+    background: rgba(126,87,255,0.08);
+}
+
+body:not(.dark-mode)::after {
+    background: rgba(0,180,220,0.06);
+}
+
+/* Smooth theme transition */
+
+body,
+.navbar,
+.profile-card,
+.floating-card,
+.mini-card,
+.skill-card,
+.project-card,
+.contact-box {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
