@@ -230,3 +230,18 @@ window.addEventListener("scroll", () => {
     }
 
 });
+// Dark Mode Toggle
+
+const darkModeButton = document.querySelector("#darkModeToggle");
+
+darkModeButton.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        darkModeButton.textContent = "☀️ Light Mode";
+    } else {
+        darkModeButton.textContent = "🌙 Dark Mode";
+    }
+
+});
