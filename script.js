@@ -1,247 +1,59 @@
-/* =====================================
-   MOBILE MENU
-===================================== */
-
-const menuButton = document.getElementById("menuButton");
-const navLinks = document.querySelector(".nav-links");
-
-menuButton.addEventListener("click", () => {
-
-    navLinks.classList.toggle("mobile-open");
-
-});
-
 
 /* =====================================
-   CLOSE MOBILE MENU
+   DYNAMIC HOBBY LIST
 ===================================== */
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+const hobbies = [
+    "UI/UX Design",
+    "Web Development",
+    "Python Programming",
+    "Photography",
+    "Learning Korean",
+    "Problem Solving"
+];
 
-    link.addEventListener("click", () => {
+const listContainer = document.getElementById("hobby-list");
 
-        navLinks.classList.remove("mobile-open");
+if (listContainer) {
+    const ul = document.createElement("ul");
 
-    });
+    for (let i = 0; i < hobbies.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = hobbies[i];
+        ul.appendChild(li);
+    }
 
-});
-
-
-/* =====================================
-   CURRENT YEAR
-===================================== */
-
-const currentYear = document.getElementById("currentYear");
-
-if (currentYear) {
-
-    currentYear.textContent = new Date().getFullYear();
-
+    listContainer.appendChild(ul);
 }
 
 
 /* =====================================
-   SCROLL REVEAL
+   HOBBY IMAGE GALLERY
 ===================================== */
 
-const revealElements = document.querySelectorAll(
-    ".section-heading, .about-main, .mini-card, .skill-card, .project-card, .timeline-item, .contact-box"
-);
+const images = [
+    "https://picsum.photos/id/1011/600/400",
+    "https://picsum.photos/id/1015/600/400",
+    "https://picsum.photos/id/1018/600/400"
+];
 
-const observer = new IntersectionObserver(
+let currentIndex = 0;
 
-    entries => {
+const hobbyImage = document.getElementById("hobby-image");
+const nextButton = document.getElementById("next-photo");
 
-        entries.forEach(entry => {
+if (hobbyImage && nextButton) {
 
-            if (entry.isIntersecting) {
+    nextButton.addEventListener("click", function () {
 
-                entry.target.classList.add("show");
+        currentIndex++;
 
-                observer.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.12
-    }
-
-);
-
-revealElements.forEach(element => {
-
-    element.classList.add("reveal");
-
-    observer.observe(element);
-
-});
-
-
-/* =====================================
-   PROJECT CARD TILT
-===================================== */
-
-const cards = document.querySelectorAll(".project-card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mousemove", event => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX =
-            ((y - centerY) / centerY) * -2;
-
-        const rotateY =
-            ((x - centerX) / centerX) * 2;
-
-        card.style.transform =
-            `perspective(800px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-5px)`;
-
-    });
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-    });
-
-});
-
-
-/* =====================================
-   PARTICLES
-===================================== */
-
-async function startParticles() {
-
-    if (typeof tsParticles === "undefined") {
-        return;
-    }
-
-    await tsParticles.load({
-
-        id: "particles-js",
-
-        options: {
-
-            background: {
-                color: {
-                    value: "transparent"
-                }
-            },
-
-            particles: {
-
-                number: {
-                    value: 45
-                },
-
-                color: {
-                    value: [
-                        "#8b5cf6",
-                        "#22d3ee",
-                        "#ffffff"
-                    ]
-                },
-
-                opacity: {
-                    value: 0.25
-                },
-
-                size: {
-                    value: {
-                        min: 1,
-                        max: 2
-                    }
-                },
-
-                move: {
-                    enable: true,
-                    speed: 0.35
-                }
-
-            },
-
-            interactivity: {
-
-                events: {
-
-                    onHover: {
-                        enable: true,
-                        mode: "repulse"
-                    }
-
-                },
-
-                modes: {
-
-                    repulse: {
-                        distance: 100,
-                        duration: 0.4
-                    }
-
-                }
-
-            },
-
-            detectRetina: true
-
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
         }
 
+        hobbyImage.src = images[currentIndex];
+
     });
 
 }
-
-startParticles();
-
-
-/* =====================================
-   SMOOTH PARALLAX
-===================================== */
-
-window.addEventListener("scroll", () => {
-
-    const visual = document.querySelector(".hero-visual");
-
-    if (!visual) return;
-
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition < window.innerHeight) {
-
-        visual.style.transform =
-            `translateY(${scrollPosition * 0.08}px)`;
-
-    }
-
-});
-// Dark Mode Toggle
-
-const darkModeButton = document.querySelector("#darkModeToggle");
-
-darkModeButton.addEventListener("click", function () {
-
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-        darkModeButton.textContent = "☀️ Light Mode";
-    } else {
-        darkModeButton.textContent = "🌙 Dark Mode";
-    }
-
-});
